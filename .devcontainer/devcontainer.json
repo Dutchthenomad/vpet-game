@@ -1,0 +1,26 @@
+{
+  "name": "vpet-game",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "postStartCommand": "npm install && npm run dev",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Dev",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "dsznajder.es7-react-js-snippets"
+      ],
+      "settings": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": null
+      }
+    }
+  },
+  "remoteUser": "node"
+}
