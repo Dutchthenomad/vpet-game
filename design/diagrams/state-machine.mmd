@@ -1,0 +1,41 @@
+stateDiagram-v2
+    [*] --> Hatching
+    Hatching --> Alive: egg hatches (~1 min)
+    Alive --> Dead: death condition met
+    Dead --> Hatching: natural-death egg
+    Dead --> [*]: neglect death (no egg)
+
+    state Alive {
+        %% --- Region: Stage progression ---
+        [*] --> Baby1
+        Baby1 --> Baby2: stage timer
+        Baby2 --> Child: stage timer / evaluate tree
+        Child --> Adult: stage timer / evaluate tree
+        Adult --> Perfect: stage timer + battle gate (stochastic)
+        --
+        %% --- Region: Activity ---
+        [*] --> Awake
+        state Awake {
+            [*] --> Idle
+            Idle --> Training: train / +trn, -2G
+            Training --> Idle: session ends
+            Idle --> Battling: battle
+            Battling --> Idle: result / winRatio, -4G, injury roll
+        }
+        Awake --> Asleep: bedtime
+        Asleep --> Awake: wake time / daytime clock
+        Asleep --> Awake: forced wake / +sleepDisturb
+        --
+        %% --- Region: Health ---
+        [*] --> Well
+        Well --> Sick: 8 poops / 99G / overfeed
+        Well --> Injured: post-battle roll (vulnerability)
+        Sick --> Well: medicine
+        Injured --> Well: medicine
+        --
+        %% --- Region: Needs ---
+        [*] --> Satisfied
+        Satisfied --> Calling: meter empty / needs sleep / waste
+        Calling --> Satisfied: resolved within 20 min
+        Calling --> Satisfied: ignored 20 min / +careMistake
+    }

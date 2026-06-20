@@ -1,0 +1,35 @@
+{
+  "version": "Digital Monster Ver.1 (mechanics reference)",
+  "note": "Documented original roster, used for mechanics fidelity and to match the rendered diagram PNGs. The shipping product uses the ORIGINAL creature roster in prototype/ (Mochi line), which maps to this structure 1:1. Engine reads a file of this exact shape regardless of roster.",
+  "stages": ["EGG", "BABY1", "BABY2", "CHILD", "ADULT", "PERFECT"],
+  "hatch": "BOTAMON",
+  "roster": {
+    "BOTAMON": "BABY1", "KOROMON": "BABY2", "AGUMON": "CHILD", "BETAMON": "CHILD",
+    "GREYMON": "ADULT", "DEVIMON": "ADULT", "TYRANOMON": "ADULT", "MERAMON": "ADULT",
+    "AIRDRAMON": "ADULT", "SEADRAMON": "ADULT", "NUMEMON": "ADULT",
+    "METALGREYMON_V": "PERFECT", "MAMEMON": "PERFECT", "MONZAEMON": "PERFECT"
+  },
+  "branches": [
+    { "from": "BOTAMON", "to": "KOROMON", "conditions": null },
+    { "from": "KOROMON", "to": "AGUMON",  "conditions": { "careMistakes": [0,3] } },
+    { "from": "KOROMON", "to": "BETAMON", "conditions": { "careMistakes": [4,99] } },
+    { "from": "AGUMON", "to": "GREYMON",   "conditions": { "careMistakes": [0,3], "training": [32,999] } },
+    { "from": "AGUMON", "to": "DEVIMON",   "conditions": { "careMistakes": [0,3], "training": [0,31] } },
+    { "from": "AGUMON", "to": "TYRANOMON", "conditions": { "careMistakes": [4,99], "training": [5,15], "overfeed": [3,99], "sleepDisturb": [0,4] } },
+    { "from": "AGUMON", "to": "MERAMON",   "conditions": { "careMistakes": [4,99], "training": [16,999], "overfeed": [3,99], "sleepDisturb": [0,6] } },
+    { "from": "AGUMON", "to": "NUMEMON",   "fallback": true },
+    { "from": "BETAMON", "to": "DEVIMON",   "conditions": { "careMistakes": [0,3], "training": [48,999] } },
+    { "from": "BETAMON", "to": "MERAMON",   "conditions": { "careMistakes": [0,3], "training": [0,47] } },
+    { "from": "BETAMON", "to": "AIRDRAMON", "conditions": { "careMistakes": [4,99], "training": [8,31], "overfeed": [0,3], "sleepDisturb": [9,99] } },
+    { "from": "BETAMON", "to": "SEADRAMON", "conditions": { "careMistakes": [4,99], "training": [8,31], "overfeed": [4,99], "sleepDisturb": [0,8] } },
+    { "from": "BETAMON", "to": "NUMEMON",   "fallback": true },
+    { "from": "GREYMON",   "to": "METALGREYMON_V", "conditions": { "battleGate": true } },
+    { "from": "DEVIMON",   "to": "METALGREYMON_V", "conditions": { "battleGate": true } },
+    { "from": "AIRDRAMON", "to": "METALGREYMON_V", "conditions": { "battleGate": true } },
+    { "from": "TYRANOMON", "to": "MAMEMON",        "conditions": { "battleGate": true } },
+    { "from": "MERAMON",   "to": "MAMEMON",        "conditions": { "battleGate": true } },
+    { "from": "SEADRAMON", "to": "MAMEMON",        "conditions": { "battleGate": true } },
+    { "from": "NUMEMON",   "to": "MONZAEMON",      "conditions": { "battleGate": true } }
+  ],
+  "battleGate": { "minBattlesPerStage": 15, "minWinsPerStage": 12, "minWinRatio": 0.80, "guaranteed": false }
+}

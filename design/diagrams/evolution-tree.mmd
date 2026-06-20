@@ -1,0 +1,31 @@
+flowchart TD
+    EGG([Digitama / Egg]) --> BOTA[Botamon · Baby I]
+    BOTA -->|"~60 min"| KORO[Koromon · Baby II]
+
+    KORO -->|"care 0-3"| AGU[Agumon · Child]
+    KORO -->|"care 4+"| BETA[Betamon · Child]
+
+    %% --- Agumon line -> Adult ---
+    AGU -->|"care 0-3, trn 32+"| GREY[Greymon · Adult]
+    AGU -->|"care 0-3, trn 0-31"| DEVI[Devimon · Adult]
+    AGU -->|"care 4+, trn 5-15, of 3+, sd 0-4"| TYRA[Tyranomon · Adult]
+    AGU -->|"care 4+, trn 16+, of 3+, sd 0-6"| MERA[Meramon · Adult]
+    AGU -->|"fallback"| NUME[Numemon · Adult]
+
+    %% --- Betamon line -> Adult ---
+    BETA -->|"care 0-3, trn 48+"| DEVI
+    BETA -->|"care 0-3, trn 0-47"| MERA
+    BETA -->|"care 4+, trn 8-31, of 0-3, sd 9+"| AIR[Airdramon · Adult]
+    BETA -->|"care 4+, trn 8-31, of 4+, sd 0-8"| SEA[Seadramon · Adult]
+    BETA -->|"fallback"| NUME
+
+    %% --- Adult -> Perfect (battle-gated, stochastic) ---
+    GREY -->|"battles + wins"| MGRE[MetalGreymon V · Perfect]
+    DEVI -->|"battles + wins"| MGRE
+    AIR  -->|"battles + wins"| MGRE
+    TYRA -->|"battles + wins"| MAME[Mamemon · Perfect]
+    MERA -->|"battles + wins"| MAME
+    SEA  -->|"battles + wins"| MAME
+    NUME -->|"battles + wins"| MONZ[Monzaemon · Perfect]
+
+    MGRE -.->|"natural death → egg"| EGG

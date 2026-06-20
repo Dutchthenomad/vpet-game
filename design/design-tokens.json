@@ -1,0 +1,58 @@
+{
+  "$meta": {
+    "name": "V-Pet design tokens",
+    "note": "Extracted verbatim from the working prototype. These are the current values, not a proposal — Claude Design may evolve them, but they define the established LCD-handheld direction and keep the prototype and final build visually reconcilable.",
+    "aesthetic": "1997 monochrome dot-matrix LCD virtual-pet handheld. Two-tone LCD (ink on pale green), rugged graphite/olive shell, single warm amber accent for the power/alert LED only."
+  },
+  "color": {
+    "lcd": {
+      "screen": "#c3d196",
+      "screenDim": "#aebd84",
+      "ink": "#2b3318",
+      "scanline": "repeating-linear-gradient(0deg, #aebd84 0 1px, transparent 1px 3px)"
+    },
+    "shell": {
+      "highlight": "#4b5247",
+      "base": "#343a32",
+      "gradient": "linear-gradient(160deg, #4b5247, #343a32)",
+      "label": "#cfd3c7",
+      "border": "rgba(0,0,0,0.4)"
+    },
+    "accent": { "amber": "#e0a526", "amberGlow": "0 0 6px #e0a526" },
+    "app": {
+      "bg": "radial-gradient(circle at 50% -10%, #222621, #101210)",
+      "text": "#c9cdc2",
+      "heading": "#eef0e8",
+      "muted": "#8b9085",
+      "faint": "#6f746a"
+    },
+    "panel": { "bg": "#181b18", "border": "#262a25", "inset": "#101210" },
+    "button": {
+      "ghostBg": "#2c302a", "ghostBorder": "#3a4038", "ghostText": "#dfe3d6",
+      "hotBg": "#bcd27a", "hotText": "#1b1d16",
+      "disabledBg": "#23262a", "disabledText": "#5a5f55"
+    },
+    "log": { "good": "#bcd27a", "warn": "#e0a526", "bad": "#e0653a", "dim": "#6f746a" }
+  },
+  "radius": { "device": 24, "panel": 10, "lcd": 8, "button": 8 },
+  "shadow": {
+    "device": "0 8px 30px rgba(0,0,0,0.5)",
+    "lcdInset": "inset 0 2px 8px rgba(0,0,0,0.35)"
+  },
+  "type": {
+    "family": "ui-monospace, Menlo, monospace",
+    "displayWeight": 800,
+    "letterSpacing": "1px",
+    "note": "Pixel/condensed display face (e.g. Press Start 2P / a dot-matrix face) is the intended upgrade for headings + LCD text; monospace is the safe fallback used in the prototype."
+  },
+  "sprite": {
+    "grid": "12x12 (placeholder); target 48x48 logical for final art",
+    "render": "image-rendering: pixelated",
+    "fill": "single ink color (#2b3318) on transparent — strictly 2-tone for LCD authenticity"
+  },
+  "components": {
+    "heart": { "w": 15, "h": 10, "border": "1.5px solid #2b3318", "fill": "#2b3318", "count": 4 },
+    "chargePip": { "size": 8, "shape": "circle", "border": "1.5px solid #2b3318" },
+    "led": { "size": 6, "shape": "circle", "onColor": "#e0a526", "offColor": "#5a5f55" }
+  }
+}

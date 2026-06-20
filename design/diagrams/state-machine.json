@@ -1,0 +1,61 @@
+{
+  "id": "vpet-runtime",
+  "initial": "Hatching",
+  "states": {
+    "Hatching": { "on": { "HATCH": "Alive" } },
+    "Dead": { "on": { "REBIRTH_NATURAL": "Hatching", "END_NEGLECT": "[final]" } },
+    "Alive": {
+      "type": "parallel",
+      "on": { "DEATH": "Dead" },
+      "regions": {
+        "stage": {
+          "initial": "Baby1",
+          "states": {
+            "Baby1": { "on": { "STAGE_TIMER": "Baby2" } },
+            "Baby2": { "on": { "STAGE_TIMER": { "target": "Child", "action": "evaluateTree" } } },
+            "Child": { "on": { "STAGE_TIMER": { "target": "Adult", "action": "evaluateTree" } } },
+            "Adult": { "on": { "STAGE_TIMER": { "target": "Perfect", "guard": "battleGate", "stochastic": true } } },
+            "Perfect": {}
+          }
+        },
+        "activity": {
+          "initial": "Awake",
+          "states": {
+            "Awake": {
+              "initial": "Idle",
+              "states": {
+                "Idle": { "on": { "TRAIN": { "target": "Training", "action": "trainStart" }, "BATTLE": "Battling" } },
+                "Training": { "on": { "DONE": { "target": "Idle", "action": "trainEnd(+trn,-2G)" } } },
+                "Battling": { "on": { "RESULT": { "target": "Idle", "action": "battleEnd(winRatio,-4G,injuryRoll)" } } }
+              },
+              "on": { "BEDTIME": "Asleep" }
+            },
+            "Asleep": { "on": { "WAKE_TIME": "Awake", "FORCED_WAKE": { "target": "Awake", "action": "+sleepDisturb" } } }
+          }
+        },
+        "health": {
+          "initial": "Well",
+          "states": {
+            "Well": { "on": { "POOP8_OR_99G_OR_OVERFEED": "Sick", "POST_BATTLE_INJURY": "Injured" } },
+            "Sick": { "on": { "MEDICINE": "Well", "UNTREATED_6H": { "action": "DEATH" } } },
+            "Injured": { "on": { "MEDICINE": "Well", "UNTREATED_6H": { "action": "DEATH" } } }
+          }
+        },
+        "needs": {
+          "initial": "Satisfied",
+          "states": {
+            "Satisfied": { "on": { "METER_EMPTY_OR_SLEEP_OR_WASTE": "Calling" } },
+            "Calling": { "on": { "RESOLVED_LE_20M": "Satisfied", "IGNORED_GT_20M": { "target": "Satisfied", "action": "+careMistake" } } }
+          }
+        }
+      }
+    }
+  },
+  "deathConditions": [
+    "careMistakes + injuryTotal >= 20 (one form)",
+    "sicknessTotal >= 20",
+    "injuryTotal >= 20",
+    "sick/injured untreated ~6h",
+    "meter empty ~6h (starvation)"
+  ]
+}
