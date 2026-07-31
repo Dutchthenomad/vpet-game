@@ -29,8 +29,9 @@ This file tracks cross-model agreements, conflicts, and promotion status.
 - Topic: Existing Tether asset as canonical pilot.
 - ChatGPT position: Unresolved; likely high-value candidate, but must be compared against owner intent and asset evidence.
 - Claude position: Tether mesh/palette/coherence-meter details independently verified against the live `tether-project` repo (see `CLAUDE-INTAKE-001.md` §1). One prior forwarded claim (defined multi-clip animation IDs) was found incorrect — the rig has exactly one baked clip and the runtime doesn't use baked clips at all.
+- Owner decision (2026-07-31): `tether-project` is a standalone side exploration, not connected to the core system. Only the creature asset (`creature.glb` + rig) carries over; the rest of `tether-project` (physics, game modes, UI, code) is out of scope. Recorded as `DEC-003`.
 - Evidence: `tether/character/manifest.json`, `tether/character/README.md`, `tether/docs/DECISIONS.md`, `tether/public/creature.js` @ `tether-project:b46640d`.
-- Status: `OPEN` — asset facts are now verified; the canonical-pilot-body *decision* itself (DEC-003) is still the owner's call.
+- Status: `PROMOTED` — resolved by `DEC-003`.
 - Canonical target: `canonical/CREATURE-CATALOG.md`
 
 ### SYN-003
