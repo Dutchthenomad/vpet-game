@@ -26,6 +26,8 @@ The first vertical slice must prove:
 5. The familiar social phenotype and terrifying survival phenotype remain recognizably the same organism.
 6. A complete recovery-to-terminal-form lifecycle can be played without blockchain, accounts, or network services.
 
+`REVIEW NOTE`: item 4 states battle results are reproducible from event history, which is verified engine fact (`CLAUDE-INTAKE-001.md` §2). It does not state whether battles remain the existing two-device social system — `CLAUDE.md`'s "Social battle" pillar ("battles require two devices") is a recorded engine pillar that this charter neither confirms nor waives. `CHATGPT-INTAKE-001.md`'s proposed MVP boundary separately floats "one deterministic single-player threat encounter" (`PROPOSED`, not decided). These two are in tension and this charter does not say which governs. Needs an explicit decision (new DEC-### or a SYN entry), not silence.
+
 ## Platform boundary
 
 - Browser-first.
@@ -35,15 +37,20 @@ The first vertical slice must prove:
 
 ## Included foundation
 
+`VERIFIED` / decided by an approved `DEC-###` (see Evidence):
+
 - Real-time care simulation.
 - Catch-up simulation from a stored timestamp on resume.
 - Engine/content separation.
 - Deterministic battle resolution.
 - Hidden evolution criteria.
-- One pilot creature body.
-- One refuge environment.
-- Three terminal developmental outcomes.
-- Meaningful post-battle consequences.
+- One pilot creature body (`DEC-003`).
+- Three terminal developmental outcomes (identity unresolved, `DEC-005`).
+- Meaningful post-battle consequences (verified as the winner's permanent +1 ATK for the session, `prototype/vpet-battle-harness.jsx:395`).
+
+`PROPOSED`, not yet synthesized or decided — do not treat as settled:
+
+- One refuge environment. This traces only to `CHATGPT-INTAKE-001.md`'s "Proposed MVP boundary" section (labeled `PROPOSED` there, never given a `SYN-###` or `DEC-###` entry). Status line above says "SETTLED SCOPE ONLY," which this item does not meet yet.
 
 ## Explicit exclusions
 
@@ -73,4 +80,6 @@ This directory contains approved or synthesis-ready product truth. Numeric mecha
 - Owner instruction replacing Void with Holographic Digital Pet.
 - `knowledge-base/decisions/DECISION-REGISTER.md`, DEC-001 through DEC-003.
 - `knowledge-base/intake/claude/CLAUDE-INTAKE-001.md`.
+- `knowledge-base/intake/chatgpt/CHATGPT-INTAKE-001.md` (source of the still-`PROPOSED` "one refuge environment" item above; also the origin of the cute-social/terrifying-survival-phenotype language in MVP objective item 5, there labeled `VERIFIED` from direct owner instruction).
+- `knowledge-base/synthesis/SYNTHESIS-LEDGER.md`, SYN-002 (`PROMOTED`), SYN-003 (`CONSENSUS`), SYN-005 (`OWNER DECISION REQUIRED` — the Digimon-reference-boundary rule this charter states in "Reference-content boundary" below is not yet owner-approved as a `knowledge-base/README.md` hard rule; this charter should not be read as having pre-settled that approval).
 - Existing engine/content split documented by the repository README, CLAUDE.md, design brief, and prototype files.

@@ -60,6 +60,8 @@ The Tether project verified a teal material, warm-orange environmental key light
 
 The chest honeycomb is a high-value diegetic-interface candidate. It is not yet approved as the sole game HUD.
 
+`REVIEW NOTE` (dependency boundary): the honeycomb's glow is not a static material property — in `tether-project` it is driven at runtime by a `uCoherence` shader uniform set from `character/creature.js` and `public/looks.js`, fed by Tether's own `game.coherence` state (`public/index.html:244,246,280`). `DEC-003` approved only `creature.glb`'s mesh and rig, and explicitly excludes all other Tether files, including this shader/behavior code. The static honeycomb geometry baked into the mesh is in scope; the coherence-driven shader behavior is not, and must be reimplemented against Holographic Digital Pet state if adopted, not imported from Tether.
+
 ## Animation state
 
 The source GLB contains one baked clip named `Armature|clip0|baselayer`. The Tether runtime used procedural/runtime bone driving rather than a multi-clip baked animation library.
@@ -72,9 +74,12 @@ Therefore:
 
 ## Lifecycle mapping
 
-The conventional egg stage is replaced by a recovery/reconstruction phase.
+`UNSUPPORTED — flagged in review, not evidenced`: the two claims below do not trace to `CLAUDE-INTAKE-001.md`, any `DEC-###`, or any `SYN-###` entry, and conflict with verified engine structure without recording that conflict as a decision:
 
-Working lifecycle IDs:
+- "The conventional egg stage is replaced by a recovery/reconstruction phase" — no cited source. The verified engine stage sequence is `EGG, BABY1, BABY2, CHILD, ADULT, PERFECT` (`design/spec/game-spec-v1.md`; `prototype/vpet-game-prototype.jsx:20`; `CLAUDE-INTAKE-001.md` §2). A rename/reframe of the first stage may be a reasonable content-layer choice, but it needs a decision-register entry, not silent assertion in a "CANONICAL DRAFT" doc.
+- The working lifecycle IDs below collapse `BABY1/BABY2/CHILD/ADULT` (four verified engine stages) into a single `juvenile` ID. That is a structural simplification of the six-stage engine this same PR's `GAMEPLAY-CONTRACT.md` says must be "preserved unless an owner decision explicitly replaces it." Either restore a per-stage ID scheme or record the collapse as an explicit decision with its own evidence.
+
+Working lifecycle IDs (revise per the note above before treating as canonical):
 
 - `creature.genesis.recovery`
 - `creature.genesis.juvenile`
@@ -88,4 +93,6 @@ The final names, visual differences, and whether existing Titanore/Beadle/Cuddlo
 
 - `knowledge-base/decisions/DECISION-REGISTER.md`, DEC-003.
 - `knowledge-base/intake/claude/CLAUDE-INTAKE-001.md`, section 1.
+- `knowledge-base/synthesis/SYNTHESIS-LEDGER.md`, SYN-002 (`PROMOTED`).
 - `Dutchthenomad/tether-project` manifest and transfer documentation cited in that intake.
+- No source is cited for "Lifecycle mapping" — see review note in that section; this is a gap, not an oversight to silently fix.

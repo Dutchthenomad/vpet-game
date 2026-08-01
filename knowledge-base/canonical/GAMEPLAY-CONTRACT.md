@@ -26,7 +26,7 @@ The existing repository establishes this separation and should remain the archit
 
 The precise final state list remains subject to catalog validation, but the MVP must support a narrow set of observable needs and actions rather than an expanding life-simulation stack.
 
-Required interaction categories:
+`PROPOSED` interaction categories (traced to `CHATGPT-INTAKE-001.md`'s "six care actions," itself labeled `PROPOSED` there and never given a `SYN-###` or `DEC-###` entry — treat the list below as a synthesis starting point, not an approved requirement):
 
 - Sustenance.
 - Rest/recovery.
@@ -43,13 +43,18 @@ The existing battle foundation is deterministic and must be preserved unless an 
 
 Verified baseline:
 
-- `ATTACK`: damage based on attack plus stored charge.
-- `DEFEND`: blocks a defined amount.
-- `CHARGE`: banks power and may be interrupted by attack.
+- `ATTACK`: damage = ATK + charge × 3.
+- `DEFEND`: blocks a defined `BLOCK` amount.
+- `CHARGE`: banks power up to `MAX_CHARGE` and may be interrupted by attack.
 - Both sides reveal actions and resolve the same result.
 - Battle resolution itself uses no RNG.
+- The winner permanently gains +1 ATK for the session.
+
+Source: `prototype/vpet-battle-harness.jsx:44,395`.
 
 Presentation may change completely, but identical combatant state, chosen actions, and catalog version must produce the same result.
+
+`REVIEW NOTE`: this section describes the resolution math but does not state whether the existing two-device battle requirement (`CLAUDE.md`'s "Social battle" design pillar) is retained. `CHATGPT-INTAKE-001.md` separately proposed a single-player threat encounter. See `PROJECT-CHARTER.md`'s MVP-objective review note — this needs an explicit decision, not silent omission from either canonical file.
 
 ## Evolution model
 
@@ -90,6 +95,8 @@ A gameplay feature is complete only when:
 ## Evidence
 
 - `knowledge-base/intake/claude/CLAUDE-INTAKE-001.md`, sections 2, 4, and 6.
+- `knowledge-base/intake/chatgpt/CHATGPT-INTAKE-001.md` (source of the still-`PROPOSED` care-action list above).
+- `knowledge-base/synthesis/SYNTHESIS-LEDGER.md`, SYN-003 (`CONSENSUS` — battle/catch-up/evolution foundation reuse).
 - Existing `prototype/vpet-battle-harness.jsx`.
 - Existing `prototype/vpet-care-engine.jsx`.
 - Existing `design/spec/game-spec-v1.md`.
