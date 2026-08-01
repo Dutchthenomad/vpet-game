@@ -1,6 +1,6 @@
 # Project Charter — Holographic Digital Pet
 
-Status: `CANONICAL DRAFT — SETTLED SCOPE ONLY`
+Status: `CANONICAL DRAFT — SETTLED SCOPE PLUS EXPLICITLY LABELED PROPOSALS`
 
 ## Product thesis
 
@@ -50,7 +50,7 @@ The first vertical slice must prove:
 
 `PROPOSED`, not yet synthesized or decided — do not treat as settled:
 
-- One refuge environment. This traces only to `CHATGPT-INTAKE-001.md`'s "Proposed MVP boundary" section (labeled `PROPOSED` there, never given a `SYN-###` or `DEC-###` entry). Status line above says "SETTLED SCOPE ONLY," which this item does not meet yet.
+- One refuge environment. This traces only to `CHATGPT-INTAKE-001.md`'s "Proposed MVP boundary" section (labeled `PROPOSED` there, never given a `SYN-###` or `DEC-###` entry). This item has not been synthesized or decided into settled scope yet.
 
 ## Explicit exclusions
 
