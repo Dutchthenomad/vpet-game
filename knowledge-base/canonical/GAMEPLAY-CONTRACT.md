@@ -26,7 +26,7 @@ The existing repository establishes this separation and should remain the archit
 
 The precise final state list remains subject to catalog validation, but the MVP must support a narrow set of observable needs and actions rather than an expanding life-simulation stack.
 
-Required interaction categories:
+`PROPOSED` interaction categories (traced to `CHATGPT-INTAKE-001.md`'s "six care actions," itself labeled `PROPOSED` there and never given a `SYN-###` or `DEC-###` entry — treat the list below as a synthesis starting point, not an approved requirement):
 
 - Sustenance.
 - Rest/recovery.
@@ -39,15 +39,25 @@ Every action must define immediate effects, delayed effects, repetition limits, 
 
 ## Battle model
 
-The existing battle foundation is deterministic and must be preserved unless an owner decision explicitly replaces it.
+Per `DEC-007`, battle has two distinct contexts:
+
+1. **Solo training/practice** — single-player, completable alone.
+2. **PvP** — opt-in, two-device, "both players agree to battle," following the original Digimon Tamagotchi V-pet method. This preserves `CLAUDE.md`'s "Social battle" pillar for this mode specifically.
+
+Exact PvP mechanics (connection/agreement flow, whether it reuses the harness below as-is or evolves it) and exact solo-training content are explicitly `UNRESOLVED` per the owner — do not invent specifics.
+
+The existing battle foundation below is deterministic and must be preserved unless an owner decision explicitly replaces it. It is confirmed evidence for the resolution math both contexts will need, not yet assigned to one context or the other.
 
 Verified baseline:
 
-- `ATTACK`: damage based on attack plus stored charge.
-- `DEFEND`: blocks a defined amount.
-- `CHARGE`: banks power and may be interrupted by attack.
+- `ATTACK`: damage = ATK + charge × 3.
+- `DEFEND`: blocks a defined `BLOCK` amount.
+- `CHARGE`: banks power up to `MAX_CHARGE` and may be interrupted by attack.
 - Both sides reveal actions and resolve the same result.
 - Battle resolution itself uses no RNG.
+- The winner permanently gains +1 ATK for the session.
+
+Source: `prototype/vpet-battle-harness.jsx:44,395`.
 
 Presentation may change completely, but identical combatant state, chosen actions, and catalog version must produce the same result.
 
@@ -90,6 +100,9 @@ A gameplay feature is complete only when:
 ## Evidence
 
 - `knowledge-base/intake/claude/CLAUDE-INTAKE-001.md`, sections 2, 4, and 6.
+- `knowledge-base/intake/chatgpt/CHATGPT-INTAKE-001.md` (source of the still-`PROPOSED` care-action list above).
+- `knowledge-base/synthesis/SYNTHESIS-LEDGER.md`, SYN-003 (`CONSENSUS` — battle/catch-up/evolution foundation reuse).
+- `knowledge-base/decisions/DECISION-REGISTER.md`, DEC-007 (solo-training vs. PvP battle-mode split).
 - Existing `prototype/vpet-battle-harness.jsx`.
 - Existing `prototype/vpet-care-engine.jsx`.
 - Existing `design/spec/game-spec-v1.md`.
