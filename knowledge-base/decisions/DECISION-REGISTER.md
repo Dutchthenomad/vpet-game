@@ -45,3 +45,14 @@ Only the project owner can finalize product-level decisions unless authority is 
 - Status: `OPEN`
 - Question: Use a small deterministic trait genome for MVP, reuse the specimen-lab genome, or defer visible genetics entirely while preserving seeded variation?
 - Blocks: Genetics catalog and procedural asset requirements.
+
+### DEC-007 — Battle modes structure
+
+- Status: `APPROVED` (split resolved; exact PvP mechanics still open — see Unresolved remainder below)
+- Decision: The game supports two distinct battle contexts, not one:
+  1. **Solo training/practice** — single-player, completable alone. This is the mode `CHATGPT-INTAKE-001.md` was gesturing at with its proposed "one deterministic single-player threat encounter."
+  2. **PvP battles** — social, opt-in ("both players agree to battle"), following the original Digimon Tamagotchi V-pet two-device method. This is `CLAUDE.md`'s existing "Social battle" design pillar, preserved as-is for this mode specifically.
+- Consequence: The two are not competing proposals and neither cancels the other. `CLAUDE.md`'s "Social battle" pillar applies to PvP; it does not forbid a separate solo training mode from existing alongside it. Resolves the conflict flagged during review of PR #2 (see `PROJECT-CHARTER.md` and `GAMEPLAY-CONTRACT.md` `REVIEW NOTE`s, PR #3).
+- Source: direct owner instruction, project owner conversation, 2026-08-01 (Claude Code session) — captured per the collaboration protocol's provenance rule for conversational memory.
+- Unresolved remainder: exact PvP mechanics (connection/agreement UX, whether it reuses the existing `ATTACK`/`DEFEND`/`CHARGE` harness as-is or evolves it, what "solo training" content/rewards look like) are explicitly **not yet defined** per the owner. Do not invent specifics — treat as `UNRESOLVED` pending further owner input.
+- Blocks: Battle-model section of `GAMEPLAY-CONTRACT.md` (partially unblocked — mode split may be documented now; PvP mechanic details remain blocked).
