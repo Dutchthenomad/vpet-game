@@ -26,7 +26,7 @@ The first vertical slice must prove:
 5. The familiar social phenotype and terrifying survival phenotype remain recognizably the same organism.
 6. A complete recovery-to-terminal-form lifecycle can be played without blockchain, accounts, or network services.
 
-`REVIEW NOTE`: item 4 states battle results are reproducible from event history, which is verified engine fact (`CLAUDE-INTAKE-001.md` §2). It does not state whether battles remain the existing two-device social system — `CLAUDE.md`'s "Social battle" pillar ("battles require two devices") is a recorded engine pillar that this charter neither confirms nor waives. `CHATGPT-INTAKE-001.md`'s proposed MVP boundary separately floats "one deterministic single-player threat encounter" (`PROPOSED`, not decided). These two are in tension and this charter does not say which governs. Needs an explicit decision (new DEC-### or a SYN entry), not silence.
+`RESOLVED by DEC-007`: the game has two distinct battle contexts, not one. Solo training/practice is single-player (this is what `CHATGPT-INTAKE-001.md`'s proposed "one deterministic single-player threat encounter" was gesturing at). PvP is opt-in, two-device, "both players agree to battle," following the original Digimon Tamagotchi V-pet method — this preserves `CLAUDE.md`'s "Social battle" pillar as-is. Exact PvP mechanics (connection/agreement UX, harness reuse vs. evolution) remain `UNRESOLVED` per `DEC-007` — do not invent specifics.
 
 ## Platform boundary
 
@@ -58,7 +58,7 @@ The MVP excludes:
 
 - Void assets, taxonomy, terminology, and lore.
 - Solana, NFTs, wallets, marketplaces, and token metadata.
-- PvP, matchmaking, wagering, tournaments, and multiplayer.
+- Matchmaking, wagering, tournaments, and ranked/networked multiplayer infrastructure. `CORRECTED per DEC-007`: this does **not** exclude PvP itself — opt-in, two-device, both-agree PvP battles (the original Digimon Tamagotchi V-pet method) are an approved core mode. The prior version of this line excluded "PvP" outright, which directly contradicted `DEC-007`.
 - Breeding, lineage, parent-offspring systems, and Punnett-square interfaces.
 - Multiple creature families.
 - Full procedural 3D habitat generation.
@@ -78,7 +78,7 @@ This directory contains approved or synthesis-ready product truth. Numeric mecha
 ## Evidence
 
 - Owner instruction replacing Void with Holographic Digital Pet.
-- `knowledge-base/decisions/DECISION-REGISTER.md`, DEC-001 through DEC-003.
+- `knowledge-base/decisions/DECISION-REGISTER.md`, DEC-001 through DEC-003, and DEC-007 (battle-modes split).
 - `knowledge-base/intake/claude/CLAUDE-INTAKE-001.md`.
 - `knowledge-base/intake/chatgpt/CHATGPT-INTAKE-001.md` (source of the still-`PROPOSED` "one refuge environment" item above; also the origin of the cute-social/terrifying-survival-phenotype language in MVP objective item 5, there labeled `VERIFIED` from direct owner instruction).
 - `knowledge-base/synthesis/SYNTHESIS-LEDGER.md`, SYN-002 (`PROMOTED`), SYN-003 (`CONSENSUS`), SYN-005 (`OWNER DECISION REQUIRED` — the Digimon-reference-boundary rule this charter states in "Reference-content boundary" below is not yet owner-approved as a `knowledge-base/README.md` hard rule; this charter should not be read as having pre-settled that approval).
